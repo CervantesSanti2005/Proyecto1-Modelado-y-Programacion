@@ -1,0 +1,84 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/santiago/Desktop/MYD/Proyecto1-Modelado-y-Programacion/Proyecto1/Proyecto1.Tests/Proyecto1.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/santiago/Desktop/MYD/Proyecto1-Modelado-y-Programacion/Proyecto1/Proyecto1.Tests/Proyecto1.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/santiago/Desktop/MYD/Proyecto1-Modelado-y-Programacion/Proyecto1/Proyecto1.Tests/Proyecto1.Tests.csproj",
+        "projectName": "Proyecto1.Tests",
+        "projectPath": "/home/santiago/Desktop/MYD/Proyecto1-Modelado-y-Programacion/Proyecto1/Proyecto1.Tests/Proyecto1.Tests.csproj",
+        "packagesPath": "/home/santiago/.nuget/packages/",
+        "outputPath": "/home/santiago/Desktop/MYD/Proyecto1-Modelado-y-Programacion/Proyecto1/Proyecto1.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/santiago/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
