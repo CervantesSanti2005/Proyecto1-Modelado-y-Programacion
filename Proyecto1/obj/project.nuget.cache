@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FoQ8LUE/fZc=",
+  "dgSpecHash": "d82Fb/9YY3c=",
   "success": true,
-  "projectFilePath": "/home/santiago/Desktop/MYD/Proyecto1-Modelado-y-Programacion/Proyecto1/Proyecto1.csproj",
+  "projectFilePath": "/home/santiago/Desktop/MYD/Proyecto1/Proyecto1/Proyecto1.csproj",
   "expectedPackageFiles": [
     "/home/santiago/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
   ],

@@ -2,7 +2,7 @@ using System;
 using System.Net.Sockets;
 using System.Text;
 
-namespace Servidor{
+namespace Chat{
     public static class MessageSender{
         public static void Send(Socket handler, string datos){
             byte[] byteData = Encoding.ASCII.GetBytes(datos);

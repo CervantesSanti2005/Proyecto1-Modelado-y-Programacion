@@ -1,4 +1,4 @@
-namespace Servidor{
+namespace Chat{
     public static class Protocolo{
         public enum MessageType{
 

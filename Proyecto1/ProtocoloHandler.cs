@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace Servidor{
+namespace Chat{
     public static class ProtocoloHandler{
 
         public static void ProcesarMensaje(string contenido, Estado estado){

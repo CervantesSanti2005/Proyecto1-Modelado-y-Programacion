@@ -1,7 +1,7 @@
 using System.Net.Sockets;
 using System.Text;
 
-namespace Servidor{
+namespace Chat{
 
     public class Estado{
 
