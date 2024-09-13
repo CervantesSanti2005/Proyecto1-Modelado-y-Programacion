@@ -18,10 +18,13 @@ namespace Chat{
                             cambiarEstadoUsuario(mensaje, estado);
                             break;
                         case Protocolo.MessageType.USERS:
-                            EnviarListaUsuarios(estado);
+                            enviarListaUsuarios(estado);
+                            break;
+                        case Protocolo.MessageType.TEXT:
+                            enviarMensajePrivado(mensaje, estado);
                             break;
                         case Protocolo.MessageType.PUBLIC_TEXT:
-                            EnviarMensajePublico(mensaje,estado);
+                            enviarMensajePublico(mensaje,estado);
                             break;
                         default:
                             if (!estado.identificado){
@@ -102,7 +105,7 @@ namespace Chat{
                 Console.WriteLine("Estado inválido");
             }
         }
-        public static void EnviarListaUsuarios(Estado estado){
+        public static void enviarListaUsuarios(Estado estado){
             var usuarios = Server.Usuarios.ToDictionary(u => u.Key, u => u.Value.status);
             var respuesta = new{
                 type = Protocolo.MessageType.USER_LIST.ToString(),
@@ -110,7 +113,7 @@ namespace Chat{
             };
             MessageSender.Send(estado.socketCliente, JsonConvert.SerializeObject(respuesta));
         }
-        public static void EnviarMensajePublico(dynamic mensaje, Estado estado){
+        public static void enviarMensajePublico(dynamic mensaje, Estado estado){
             string texto = mensaje.text;
 
             var notificacion = new{
@@ -120,5 +123,33 @@ namespace Chat{
             };
             MessageSender.EnviarATodos(JsonConvert.SerializeObject(notificacion), estado);
         }
+        public static void enviarMensajePrivado(dynamic mensaje, Estado estado){
+            string destinatario = mensaje.para;
+            string texto = mensaje.text;
+
+            if(Server.Usuarios.ContainsKey(destinatario)){
+                Estado estadoDestinatario = Server.Usuarios[destinatario];
+
+                var mensajePrivado = new{
+                    type = "TEXT_FROM",
+                    from = estado.username,
+                    text = texto
+                };
+
+                MessageSender.Send(estadoDestinatario.socketCliente, JsonConvert.SerializeObject(mensajePrivado));
+                Console.WriteLine("Mensaje privado de {0} a {1}: {2}", estado.username, destinatario, texto);
+            }else{
+                var mensajeError = new{
+                    type = "RESPONSE",
+                    operation = "TEXT",
+                    result = "NO_SUCH_USER",
+                    extra = destinatario
+                };
+
+            MessageSender.Send(estado.socketCliente, JsonConvert.SerializeObject(mensajeError));
+            Console.WriteLine("El destinatario {0} no está conectado", destinatario);
+            }
+        }
+
     }
 }

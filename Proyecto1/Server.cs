@@ -131,6 +131,15 @@ namespace Chat
                     text = mensajeTexto
                 };
                 ProtocoloHandler.ProcesarMensaje(JsonConvert.SerializeObject(mensaje), estado);
+            }else if(partes[0].ToLower() == "dm" && partes.Length >= 3){
+                string destinatario = partes[1];
+                string mensajeDirecto = string.Join(" ", partes, 2, partes.Length - 2);
+                var mensaje = new{
+                    type = "TEXT",
+                    para = destinatario,
+                    text = mensajeDirecto
+                };
+                ProtocoloHandler.ProcesarMensaje(JsonConvert.SerializeObject(mensaje), estado);
             }else{
                 Console.WriteLine("Comando no reconocido: " + comando);
             }

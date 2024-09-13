@@ -55,9 +55,7 @@ namespace Chat
                     username = username
                 };
                 EnviarMensaje(mensaje);
-            }
-            else if (partes[0].ToLower() == "public" && partes.Length >= 2)
-            {
+            }else if (partes[0].ToLower() == "public" && partes.Length >= 2){
                 string mensajeTexto = string.Join(" ", partes, 1, partes.Length - 1);
                 var mensaje = new
                 {
@@ -65,6 +63,16 @@ namespace Chat
                     text = mensajeTexto
                 };
                 EnviarMensaje(mensaje);
+            }else if(partes[0].ToLower() == "dm" && partes.Length >= 3){
+                string destinatario = partes[1];
+                string mensajeDirecto = string.Join(" ", partes, 2, partes.Length - 2);
+                var mensaje = new{
+                    type = "TEXT",
+                    para = destinatario,
+                    text = mensajeDirecto
+                };
+                EnviarMensaje(mensaje);
+
             }
             else
             {
